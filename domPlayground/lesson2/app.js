@@ -42,4 +42,4 @@ classes.textContent = 'I have two classes!';
 
 // Task 7 — Log how many .intro paragraphs exist on the page.
 const length = document.querySelectorAll('.intro');
-console.log(length.length) // why querySelector didn't work but qsa works? 
+console.log(length.length)  
