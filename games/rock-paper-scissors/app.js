@@ -25,7 +25,7 @@ function getResult() {
   const computer = computerChoice.textContent;
   const user = userChoice.textContent;
 
-  if (computerChoice.textContent === userChoice.textContent) {
+  if (computer === user) {
     result.textContent = "It's a Tie! 🤝";
   } else if (
     (computer === "Rock" && user === "Scissors") ||
