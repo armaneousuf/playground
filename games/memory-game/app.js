@@ -75,7 +75,7 @@ function checkMatch () {
     const optionTwoId = cardChosenIds[1];
 
     if(optionOneId === optionTwoId) {
-        cards[optionOneId].setAttribute('src', 'images/blank.png'); // here is an error
+        cards[optionOneId].setAttribute('src', 'images/blank.png'); 
         cards[optionTwoId].setAttribute('src', 'images/blank.png');
         alert('You clicked the same image')
     }
@@ -91,7 +91,7 @@ function checkMatch () {
     } else {
         cards[optionOneId].setAttribute('src', 'images/blank.png')
         cards[optionTwoId].setAttribute('src', 'images/blank.png')
-        alert('Sorry, try again')
+        // alert('Sorry, try again')
     }
 
     resultDisplay.textContent = cardWon.length
