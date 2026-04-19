@@ -8,5 +8,5 @@ function greet(name) {
 var greetYousuf = greet("Yousuf");
 var greetAli = greet("Ali");
 
-greetYousuf();
-greetAli();
+greetYousuf(); // log salam yousuf first
+greetAli(); // log salam ali then 
