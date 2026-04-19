@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+
+<style>
+    button {
+        padding: 10px;
+        background-color: #242323;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    span {
+        font-size: 1.5rem;
+
+    }
+</style>
+<body>
+    <div>
+        <button class="increase">Increase</button>
+        <span class="display-count">0</span>
+        <button class="decrease">Decrease</button>
+        <button class="reset">Reset</button>
+    </div>
+
+    <script>
+        const displayCounter = document.querySelector('.display-count');
+        const increaseBTN = document.querySelector('.increase');
+        const decreaseBTN = document.querySelector('.decrease');
+        const resetBTN = document.querySelector('.reset');
+
+        let counter = 0;
+        function updateDisplay() {
+            displayCounter.textContent = counter;
+        }
+
+        increaseBTN.addEventListener('click', ()=>{
+            counter++; 
+            updateDisplay()
+        });
+
+        decreaseBTN.addEventListener('click', ()=>{
+           if(counter !== 0){
+             counter--;
+            updateDisplay();
+           }
+        });
+
+        resetBTN.addEventListener('click', ()=>{
+            counter = 0;
+            updateDisplay()
+        })
+
+
+    </script>
+</body>
+</html>
