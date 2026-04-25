@@ -2,6 +2,6 @@
 
 function greetUser(name){
     return "Hello, " + name;
-}
+};
 
-console.log(greetUser('Arman'))
+console.log(greetUser('Arman'));
