@@ -46,9 +46,20 @@ function showPerson() {
    review.textContent = persons[track].review;
 };
 
-btnPrevious.addEventListener('click', ()=>{
-    persons.length - 1;
-});
 btnNext.addEventListener('click', ()=>{
-    persons.length + 1;
+    track++; 
+    if(track === persons.length){
+        track = 0;
+    }
+    showPerson()
 });
+
+btnPrevious.addEventListener('click', ()=>{
+    track--;
+    if(track < 0){
+        track = persons.length - 1;
+    }
+    showPerson()
+});
+
+showPerson();
