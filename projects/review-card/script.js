@@ -36,4 +36,19 @@ const name = document.querySelector('#name');
 const title = document.querySelector('#title');
 const review = document.querySelector('#review');
 const btnPrevious = document.querySelector('#btn-previous');
-const btnNext = document.querySelector('#btn-next')
+const btnNext = document.querySelector('#btn-next');
+
+let track = 0;
+function showPerson() {
+   name.textContent = persons[track].name;
+   title.textContent = persons[track].title;
+   url.src = persons[track].url;
+   review.textContent = persons[track].review;
+};
+
+btnPrevious.addEventListener('click', ()=>{
+    persons.length - 1;
+});
+btnNext.addEventListener('click', ()=>{
+    persons.length + 1;
+});
