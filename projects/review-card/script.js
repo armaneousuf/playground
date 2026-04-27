@@ -31,19 +31,19 @@ const persons = [
     }
 ];
 
-const url = document.querySelector('#img');
-const name = document.querySelector('#name');
-const title = document.querySelector('#title');
-const review = document.querySelector('#review');
+const urlEl = document.querySelector('#img');
+const nameEl = document.querySelector('#name');
+const titleEl = document.querySelector('#title');
+const reviewEl = document.querySelector('#review');
 const btnPrevious = document.querySelector('#btn-previous');
 const btnNext = document.querySelector('#btn-next');
 
 let track = 0;
 function showPerson() {
-   name.textContent = persons[track].name;
-   title.textContent = persons[track].title;
-   url.src = persons[track].url;
-   review.textContent = persons[track].review;
+   nameEl.textContent = persons[track].name;
+   titleEl.textContent = persons[track].title;
+   urlEl.src = persons[track].url;
+   reviewEl.textContent = persons[track].review;
 };
 
 btnNext.addEventListener('click', ()=>{
