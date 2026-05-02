@@ -14,6 +14,4 @@ function double(num){
 
 console.log(myMap([1, 2, 3, 4, 5], double));
 
-// do it again 
-
 
