@@ -1,12 +1,14 @@
 const getUser = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve({name: 'Yousuf'})
+        // resolve({name: 'Yousuf'})
+        reject('get user also crashes')
     }, 5000);
 })
 
 const getOrders = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve(['order 1', 'order 2'])
+        // resolve(['order 1', 'order 2'])
+        reject('Opps! get orders crashes')
     }, 2000);
 })
 
@@ -17,7 +19,7 @@ const getNotifications = new Promise((resolve, reject) => {
     }, 3000);
 })
 
-Promise.allSettled([getUser, getOrders, getNotifications])
+Promise.any([getUser, getOrders, getNotifications])
 .then((value) => {
     console.log(value)
 })
