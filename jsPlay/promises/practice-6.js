@@ -2,7 +2,7 @@ const getUser = fetch("https://jsonplaceholder.typicode.com/users/1").then(
   (res) => res.json(),
 );
 
-const getPost = fetch("https://jsonplaceholder.typicode.com/posts/1").then(
+const getPost = fetch("https://jsonplaceholder(this will throw an error).typicode.com/posts/1").then(
   (res) => res.json(),
 );
 
