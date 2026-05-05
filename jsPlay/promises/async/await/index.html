@@ -1,54 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joke Machine</title>
     <style>
-        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; margin-top: 100px; background-color: #f4f4f9; }
-        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 100%; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; margin-bottom: 20px; }
-        button:hover { background: #0056b3; }
-        .setup { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
-        .punchline { font-size: 18px; color: #555; font-style: italic; }
-        .error { color: red; font-weight: bold; }
+      body {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+        background-color: #f4f4f9;
+      }
+      .card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+      button {
+        background: #1A311F;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .setup {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .punchline {
+        font-size: 18px;
+        color: #555;
+        font-style: italic;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="card">
-        <button id="joke-btn">Get a Random Joke</button>
-        <div id="joke-display">
-            <p class="setup" id="setup">Click the button for a joke!</p>
-            <p class="punchline" id="punchline"></p>
-        </div>
+      <button id="joke-btn">Get a Random Joke</button>
+      <div id="joke-display">
+        <p class="setup" id="setup">Click the button for a joke!</p>
+        <p class="punchline" id="punchline"></p>
+      </div>
     </div>
 
     <script>
-        const button = document.getElementById('joke-btn');
-        const setupText = document.getElementById('setup');
-        const punchlineText = document.getElementById('punchline');
+      const button = document.getElementById("joke-btn");
+      const setupText = document.getElementById("setup");
+      const punchlineText = document.getElementById("punchline");
 
-        const API_URL = 'https://official-joke-api.appspot.com/random_joke';
+      const API_URL = "https://official-joke-api.appspot.com/random_joke";
 
-        async function getJoke() {
-            try{
-                const jokeAPI = await fetch(API_URL);
-                const jokeAPIJson = await jokeAPI.json();
-                // console.log(jokeAPIJson)
-                setupText.textContent = jokeAPIJson.setup;
-                punchlineText.textContent = jokeAPIJson.punchline
-
-            } catch (error){
-                setupText.textContent = 'Oops! Could not fetch joke.'
-            }
+      async function getJoke() {
+        try {
+          const jokeAPI = await fetch(API_URL);
+          const jokeAPIJson = await jokeAPI.json();
+          // console.log(jokeAPIJson)
+          setupText.textContent = jokeAPIJson.setup;
+          punchlineText.textContent = jokeAPIJson.punchline;
+        } catch (error) {
+          setupText.textContent = "Oops! Could not fetch joke.";
         }
+      }
 
-        button.addEventListener('click', () => {
-            getJoke()
-        });
-        getJoke()
+      button.addEventListener("click", () => {
+        getJoke();
+      });
+      getJoke();
     </script>
-
-</body>
+  </body>
 </html>
