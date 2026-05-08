@@ -11,4 +11,7 @@ const user = {
     }
 }
 
-user.greet()
+// this.greet() this won't work 
+user. greet()
+
+// console.log(typeof(this))
