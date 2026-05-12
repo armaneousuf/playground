@@ -7,7 +7,7 @@ function generateHexColor() {
   let hex = "#";
   for (let i = 0; i < 6; i++) {
     const random = Math.floor(Math.random() * hexColor.length);
-    hex += hexColor[random];
+    hex = hex + hexColor[random];
   }
   return hex;
 }
