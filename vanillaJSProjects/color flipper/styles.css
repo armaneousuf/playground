@@ -1,5 +1,6 @@
 body {
   box-sizing: border-box;
+  background-color: #FAFAFA;
 }
 
 h1 {
@@ -17,6 +18,12 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.flex h2 {
+  border: 2px solid;
+  border-image: linear-gradient(to right, #3473aa, #40eb6b) 1;
+  padding: 10px;
 }
 
 .btn {
