@@ -23,4 +23,3 @@ newItem.className = 'item';
 document.body.append(newItem);
 
 document.querySelector('.item').textContent = 'This div created by JavaScript';
-
