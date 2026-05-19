@@ -52,7 +52,22 @@ function changeData() {
 }
 
 prevBtn.addEventListener("click", () => {
-  console.log('clicked');
+  currentItem--;
+  if(currentItem < 0){
+    currentItem = reviews.length - 1;
+  }
+  changeData()
 });
-
+nextBtn.addEventListener('click', () => {
+  currentItem++;
+  if(currentItem >  reviews.length - 1){
+    currentItem = 0;
+  }
+  changeData()
+})
+randomBtn.addEventListener('click', () => {
+  const random = Math.floor(Math.random() * reviews.length);
+  currentItem = random;
+  changeData()
+})
 changeData();
