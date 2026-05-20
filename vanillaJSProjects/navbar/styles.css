@@ -1,0 +1,81 @@
+/* Base Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background: #f1f5f9;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Mobile Menu Setup */
+.nav-center {
+  background: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hamburger Bars */
+.nav-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Hide links by default on mobile */
+.links {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* The Utility Class JS will trigger */
+.show-links {
+  height: auto;
+  margin-top: 1rem;
+}
+.links li {
+  padding: 0.5rem 0;
+}
+
+/* Desktop Media Query */
+@media screen and (min-width: 768px) {
+  .nav-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1170px;
+    margin: 0 auto;
+  }
+  .nav-toggle {
+    display: none; /* Hide hamburger on desktop */
+  }
+  .links {
+    height: auto !important; /* Force show links */
+    display: flex;
+    gap: 2rem;
+  }
+}
