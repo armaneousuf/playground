@@ -47,14 +47,14 @@ a {
 
 /* Hide links by default on mobile */
 .links {
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
 }
 
 /* The Utility Class JS will trigger */
 .show-links {
-  height: auto;
+  max-height: 20rem;
   margin-top: 1rem;
 }
 .links li {
