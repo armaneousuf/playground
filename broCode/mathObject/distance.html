@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculate Distance</title>
+    <style>
+      :root {
+        --bg-color: #f4f7f6;
+        --card-bg: #ffffff;
+        --text-color: #2d3748;
+        --primary-color: #449648;
+        --border-color: #e2e8f0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .calculator-card {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        text-align: center;
+        color: var(--primary-color);
+      }
+
+      .point-group {
+        margin-bottom: 1.25rem;
+      }
+
+      .point-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+
+      .input-row {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .input-wrapper {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .input-prefix {
+        position: absolute;
+        left: 0.75rem;
+        color: #a0aec0;
+        font-size: 0.875rem;
+        pointer-events: none;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 0.75rem 0.75rem 0.75rem 1.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+
+      input[type="number"]:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+      }
+
+      #result {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background-color: #f8fafc;
+        border-radius: 6px;
+        border-left: 4px solid var(--primary-color);
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator-card">
+      <h2>Distance Calculator</h2>
+      
+      <div class="point-group">
+        <span class="point-label">Point 1</span>
+        <div class="input-row">
+          <div class="input-wrapper">
+            <span class="input-prefix">X</span>
+            <input type="number" id="x1" placeholder="0" value="0" />
+          </div>
+          <div class="input-wrapper">
+            <span class="input-prefix">Y</span>
+            <input type="number" id="y1" placeholder="1" value="1" />
+          </div>
+        </div>
+      </div>
+
+      <div class="point-group">
+        <span class="point-label">Point 2</span>
+        <div class="input-row">
+          <div class="input-wrapper">
+            <span class="input-prefix">X</span>
+            <input type="number" id="x2" placeholder="3" value="3" />
+          </div>
+          <div class="input-wrapper">
+            <span class="input-prefix">Y</span>
+            <input type="number" id="y2" placeholder="4" value="4" />
+          </div>
+        </div>
+      </div>
+
+      <p id="result">Distance: 0</p>
+    </div>
+  </body>
+
+  <script>
+    function distance(x1, y1, x2, y2) {
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      return Math.sqrt(dx ** 2 + dy ** 2);
+    }
+
+    const resultEl = document.querySelector('#result');
+    const inputs = document.querySelectorAll('input');
+
+    function updateDistance() {
+        const x1 = Number(document.querySelector('#x1').value);
+        const y1 = Number(document.querySelector('#y1').value);
+        const x2 = Number(document.querySelector('#x2').value);
+        const y2 = Number(document.querySelector('#y2').value);
+
+        const d = distance(x1, y1, x2, y2);
+        
+        resultEl.textContent = `Distance: ${Number(d.toFixed(4))}`;
+    }
+
+    inputs.forEach((input) => {
+        input.addEventListener('input', updateDistance)
+    });
+
+    updateDistance();
+  </script>
+</html>
