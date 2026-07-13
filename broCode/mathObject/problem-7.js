@@ -11,9 +11,9 @@ function average(...nums){
     const max = Math.max(...nums);
 
     return {
-        avg: avg,
-        min: min, 
-        max: max
+        avg,
+        min,
+        max
     }
 
 
