@@ -4,43 +4,130 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age varification</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .container {
+        background: #ffffff;
+        padding: 2.5rem 2rem;
+        border-radius: 16px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 320px;
+      }
+
+      .input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.2s ease;
+      }
+
+      .input:focus {
+        border-color: #764ba2;
+      }
+
+      button {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          opacity 0.15s ease;
+      }
+
+      button:active {
+        transform: scale(0.96);
+      }
+
+      .verify {
+        background: #764ba2;
+        color: #fff;
+      }
+
+      .verify:hover {
+        opacity: 0.9;
+      }
+
+      .random {
+        background: #f0f0f0;
+        color: #333;
+      }
+
+      .random:hover {
+        background: #e0e0e0;
+      }
+
+      .result {
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        color: #333;
+        text-align: center;
+        min-height: 1.5rem;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-        <input type="text" class="input"> 
+      <input type="text" class="input" />
+      <div style="display: flex; gap: 0.5rem">
         <button class="verify">Verify</button>
-        <button class="random">Random</button> <br>
-        <h2 class="result"></h2>
+        <button class="random">Random</button>
+      </div>
+      <h2 class="result"></h2>
     </div>
   </body>
 
   <script>
-    const verifyBtn = document.querySelector('.verify');
-    const randomBtn = document.querySelector('.random');
-    const result = document.querySelector('.result'); 
-    
-    verifyBtn.addEventListener('click', () => {
-        verifyAge();
-    })
-    
-    randomBtn.addEventListener('click', () => {
-        const num = randomNum(100, 0);
-        document.querySelector('.input').value = num;
-        
-    })
-    
-    function verifyAge(){
-        const input = Number(document.querySelector('.input').value);   
-        if(input >= 18){
-            result.textContent = 'You are eligible'
-        } else {
-            result.textContent = 'You are not eligible'
-        }
+    const verifyBtn = document.querySelector(".verify");
+    const randomBtn = document.querySelector(".random");
+    const result = document.querySelector(".result");
+    const inputField = document.querySelector(".input");
+
+    verifyBtn.addEventListener("click", () => {
+      verifyAge();
+      inputField.value = "";
+    });
+
+    randomBtn.addEventListener("click", () => {
+      const num = randomNum(100, 0);
+      document.querySelector(".input").value = num;
+    });
+
+    function verifyAge() {
+      const input = Number(inputField.value);
+      if (input >= 18) {
+        result.textContent = "You are eligible";
+      } else {
+        result.textContent = "You are not eligible";
+      }
     }
-    
-    function randomNum(max, min){
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+
+    function randomNum(max, min) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    
   </script>
 </html>
