@@ -6,12 +6,12 @@ function average(...nums){
         // console.log(number);
         sum += number
     } 
-
+    const avg = sum / nums.length;
     const min = Math.min(...nums);
     const max = Math.max(...nums);
 
     return {
-        avg: sum / nums.length,
+        avg: avg,
         min: min, 
         max: max
     }
