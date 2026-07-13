@@ -6,6 +6,41 @@
     <title>Age varification</title>
   </head>
   <body>
-    
+    <div class="container">
+        <input type="text" class="input"> 
+        <button class="verify">Verify</button>
+        <button class="random">Random</button> <br>
+        <h2 class="result"></h2>
+    </div>
   </body>
+
+  <script>
+    const verifyBtn = document.querySelector('.verify');
+    const randomBtn = document.querySelector('.random');
+    const result = document.querySelector('.result'); 
+    
+    verifyBtn.addEventListener('click', () => {
+        verifyAge();
+    })
+    
+    randomBtn.addEventListener('click', () => {
+        const num = randomNum(100, 0);
+        document.querySelector('.input').value = num;
+        
+    })
+    
+    function verifyAge(){
+        const input = Number(document.querySelector('.input').value);   
+        if(input >= 18){
+            result.textContent = 'You are eligible'
+        } else {
+            result.textContent = 'You are not eligible'
+        }
+    }
+    
+    function randomNum(max, min){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+  </script>
 </html>
