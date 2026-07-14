@@ -92,7 +92,11 @@
   </head>
   <body>
     <div class="container">
-      <input type="text" class="input" placeholder="Age should be from 18 - 100"/>
+      <input
+        type="text"
+        class="input"
+        placeholder="Age should be from 18 - 100"
+      />
       <div style="display: flex; gap: 0.5rem">
         <button class="verify">Verify</button>
         <button class="random">Random</button>
@@ -110,11 +114,20 @@
     verifyBtn.addEventListener("click", () => {
       verifyAge();
       inputField.value = "";
+      // verifyBtn.blur();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        verifyBtn.click();
+      }
     });
 
     randomBtn.addEventListener("click", () => {
       const num = randomNum(100, 0);
       document.querySelector(".input").value = num;
+      randomBtn.blur();
     });
 
     function verifyAge() {
