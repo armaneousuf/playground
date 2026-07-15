@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checked property</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="checkbox" id="subscribe" />
+      <label for="subscribe">subscribe</label> <br /><br />
+
+      <input type="radio" id="visaCard" name="card" value="Visa"/>
+      <label for="visaCard">Visa</label>
+      <br />
+      <input type="radio" id="masterCard" name="card" value="Master Card"/>
+      <label for="masterCard">Master Card</label>
+      <br />
+      <input type="radio" id="payPal" name="card" value="Paypal"/>
+      <label for="payPal">Paypal</label>
+    </div>
+
+    <button class="submitBtn">Submit</button>
+    <p class="showCheckbox"></p>
+    <p class="showPaymentOption"></p>
+  </body>
+  <script>
+    const subscribe = document.querySelector('#subscribe');
+    const visaCard = document.querySelector('#visaCard');
+    const paymentMethods = document.querySelectorAll('input[name="card"]');
+    const submitBtn = document.querySelector('.submitBtn');
+    const showCheckbox = document.querySelector('.showCheckbox');
+    const showPaymentOption = document.querySelector('.showPaymentOption');
+
+    console.log(subscribe, visaCard, masterCard, payPal, submitBtn);
+
+    submitBtn.addEventListener('click', () => {
+        if(subscribe.checked){
+            showCheckbox.textContent = 'You are subscribed!';
+            showCheckbox.style.color = '#2e7d32';
+        } else {
+            showCheckbox.textContent = 'You are not subscribed!'
+            showCheckbox.style.color = '#c62828'
+        }
+
+        const selected = [...paymentMethods].find(option => option.checked);
+        showPaymentOption.textContent = selected ? `Selected Payment: ${selected.value}` : `No payment method selected`;
+
+    });
+
+  </script>
+</html>
