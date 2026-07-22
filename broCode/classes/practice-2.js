@@ -7,6 +7,10 @@ class Vehicle {
     startEngine(){
         return `The ${this.make} ${this.model}'s engine is running!`;
     }
+
+    fly() {
+        return `The ${this.make} ${this.model} is flying at ${this.maxAltitude} feet!`
+    }
     
 }
 
@@ -23,9 +27,7 @@ class Plane extends Vehicle {
         this.maxAltitude = maxAltitude;
     }
 
-    fly() {
-        return `The ${this.make} ${this.model} is flying at ${this.maxAltitude} feet!`
-    }
+    
 }
 
 const car = new Car ('Toyota', 'Corolla', 4);
