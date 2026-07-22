@@ -41,3 +41,5 @@ const plane = new Plane('Boeing', 747, 34000);
 // console.log(plane.maxAltitude);
 
 console.log(car.startEngine());
+console.log(plane.startEngine());
+console.log(plane.fly());
