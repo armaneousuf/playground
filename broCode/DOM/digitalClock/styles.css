@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  overflow: hidden;
+  background-image: url("https://images.unsplash.com/photo-1524671470795-c7d181eca26e?q=80&w=1920&auto=format&fit=crop");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock{
+    font-size: 5rem;
+    color: hsl(0, 0%, 100%);
+    padding: 10px 100px 10px 100px;
+    background: hsla(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(200px); 
+    -webkit-backdrop-filter: blur(10px);
+}
