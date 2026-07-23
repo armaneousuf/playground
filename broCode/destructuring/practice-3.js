@@ -9,7 +9,14 @@ const apiResponse = {
   }
 };
 
-const {data: {user: {username}, topScores: [highestScore]}} = apiResponse
+// hardway
+// const {data: {user: {username}, topScores: [highestScore]}} = apiResponse
+
+// human-readable
+const {user, topScores} = apiResponse.data;
+
+const {username} = user;
+const [highestScore] = topScores;
 
 console.log(username);
 console.log(highestScore);
