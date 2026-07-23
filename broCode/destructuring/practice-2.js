@@ -3,7 +3,7 @@ const person = {
   role: "Defender",
 };
 
-const { fullName: name, role: role } = person;
+const { fullName: name, role } = person;
 
 console.log(name);
 
