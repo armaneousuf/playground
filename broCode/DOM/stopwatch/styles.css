@@ -11,8 +11,10 @@ h1 {
 }
 
 .display-timer {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 20px;
+  font-variant-numeric: tabular-nums;
+  font-family: monospace;
 }
 
 .btn-container button {
