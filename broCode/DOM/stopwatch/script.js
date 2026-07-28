@@ -24,7 +24,7 @@ function updateDisplay() {
 
 function start(){
     if(timeInterval) {
-        return
+     clearInterval(timeInterval)
     }
 
     startTime = Date.now();
