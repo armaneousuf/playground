@@ -12,7 +12,22 @@
     <ul id="user-list"></ul>
 
     <script>
+        const inputItem = document.querySelector('#item-input'); 
+        const addBtn = document.querySelector('#add-btn');
+        const userList = document.querySelector('#user-list');
         
+        addBtn.addEventListener('click', () => {
+            if(inputItem.value.trim() !== ''){
+                const newItem = document.createElement('li');
+                newItem.textContent = inputItem.value;
+
+                userList.append(newItem)
+                inputItem.value = ''
+                
+            } else{
+                alert('noooo')
+            }
+        })
     </script>
   </body>
 </html>
