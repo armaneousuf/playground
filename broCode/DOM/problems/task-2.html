@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create and add new elements</title>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li>Apple</li>
+      <li>Banana</li>
+    </ul>
+
+    <script>
+        const fruitList = document.querySelector('#fruit-list');
+        const orangeItem = document.createElement('li');
+        orangeItem.textContent = 'Orange';
+        fruitList.append(orangeItem);
+
+        const mangoItem = document.createElement('li');
+        mangoItem.textContent = 'Mango';
+        fruitList.prepend(mangoItem)
+
+    </script>
+  </body>
+</html>

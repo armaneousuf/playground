@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Styles & Attributes</title>
+  </head>
+  <body>
+    <img id="status-img" src="off.png" alt="Off Status" />
+    <div id="card" class="card">Card Box</div>
+
+
+    <script>
+        const imageSrc = document.querySelector('#status-img');
+        imageSrc.setAttribute('src', 'on.png')
+
+        const cardToClass = document.querySelector('#card');
+        cardToClass.classList.add('active');
+
+        cardToClass.style.backgroundColor = 'lightgreen'
+    </script>
+  </body>
+</html>
