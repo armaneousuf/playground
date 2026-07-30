@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bug Hunt Practice</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+    .card { background: #f4f4f4; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <!-- FEATURE 1: Counter -->
+  <div class="card">
+    <h2>Click Counter</h2>
+    <p>Count: <span id="count-display">0</span></p>
+    <button id="count-btn">Add 1</button>
+  </div>
+
+  <!-- FEATURE 2: Task List -->
+  <div class="card">
+    <h2>Quick Task List</h2>
+    <input type="text" id="task-input" placeholder="New task..." />
+    <button id="add-task-btn">Add Task</button>
+    <ul id="task-list"></ul>
+  </div>
+
+  <script>
+    // ==========================================
+    // BUG HUNTING SCRIPT
+    // ==========================================
+
+    // --- Feature 1: Counter Logic ---
+    const countDisplay = document.querySelector('#count-display');
+    const countBtn = document.querySelector('#count-btn');
+    let count = 0;
+
+    countBtn.addEventListener('click', () => {
+      count = count + 1;
+      countDisplay.textContent = count;
+      console.log(count);
+    });
+
+
+    // --- Feature 2: Task List Logic ---
+    const taskInput = document.querySelector('#task-input');
+    const addTaskBtn = document.querySelector('#add-task-btn');
+    const taskList = document.querySelector('#task-list');
+
+    // Creating element out here...
+    addTaskBtn.addEventListener('click', () => {
+        const newTask = document.createElement('li');
+        const text = taskInput.value;
+        console.log('new task is ', text);
+
+      newTask.textContent = text;
+      taskList.append(newTask);
+
+      taskInput.value = '';
+      console.log('New task element:', newTask);
+    });
+
+  </script>
+</body>
+</html>
