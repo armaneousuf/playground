@@ -1,8 +1,11 @@
 html, body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     background-color: var(--body-bg);
+}
+
+*, **::before, **::after {
+    box-sizing: border-box;
 }
 
 :root {
@@ -36,6 +39,12 @@ html, body {
     padding: 12px 24px;
     font-size: 1rem;
     transition: background .5s linear;
+    cursor: pointer;
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--grad-color3);
+    outline-offset: 2px;
 }
 
 .button-border:hover {
