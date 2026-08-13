@@ -27,7 +27,7 @@ async function getWeatherData(city) {
   // console.log(response);
 
   if (!response.ok) {
-    throw new Error("Could not fetch data");
+    throw new Error("API is disabled for security reason");
   }
 
   return await response.json();
