@@ -5,4 +5,3 @@ const roundTo = function (n, step) {
 };
 
 console.log(roundTo(48, 5));
-console.log(48 - 3);
