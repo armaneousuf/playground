@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Color using CSS</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        height: 100dvh;
+        background-color: #0d0d0d;
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        overflow: hidden;
+      }
+
+      .track {
+        display: flex;
+        gap: 20px;
+        animation: trainMove 30s linear infinite;
+      }
+
+      .card {
+        width: 200px;
+        padding: 40px;
+        text-align: center;
+        flex-shrink: 0;
+
+        background-color: rgba(38, 30, 15, 0.6);
+        border: 1px solid rgba(217, 164, 65, 0.35);
+        border-radius: 10px;
+        color: #d9a441;
+        backdrop-filter: blur(6px);
+      }
+
+      .track:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes trainMove {
+        0% {
+          transform: translateX(100vw);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <div class="track">
+      <div class="card">one</div>
+      <div class="card">two</div>
+      <div class="card">three</div>
+      <div class="card">four</div>
+      <div class="card">five</div>
+      <div class="card">six</div>
+      <div class="card">seven</div>
+    </div>
+  </body>
+</html>
