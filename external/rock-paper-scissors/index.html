@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock paper scissors</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+    <script>
+      const rock = document.querySelector(".rock");
+      const paper = document.querySelector(".paper");
+      const scissors = document.querySelector(".scissors");
+      console.log(rock, paper, scissors);
+
+     const generateRandomNumber = function() {
+        const randomNumber = Math.floor(Math.random() * 3);
+        if (randomNumber === 0) {
+          return "rock";
+        } else if (randomNumber === 1) {
+          return "paper";
+        } else {
+          return "scissors";
+        }
+      }
+
+      function playRock() {
+        const computerMove = generateRandomNumber();
+        if(generateRandomNumber === computerMove){
+            alert(`Your move rock and computer's move ${computerMove}`);
+        }
+      }
+
+      function playPaper() {
+        const computerMove = generateRandomNumber();
+        alert(`Your move rock and computer's move ${computerMove}`);
+      }
+
+      function playScissors() {
+        const computerMove = generateRandomNumber();
+        alert(`Your move rock and computer's move ${computerMove}`);
+      }
+
+      rock.addEventListener("click", playRock);
+      paper.addEventListener("click", playPaper);
+      scissors.addEventListener("click", playScissors);
+    </script>
+  </body>
+</html>
