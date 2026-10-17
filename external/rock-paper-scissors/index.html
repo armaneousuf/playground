@@ -16,7 +16,7 @@
       const scissors = document.querySelector(".scissors");
       console.log(rock, paper, scissors);
 
-     const generateRandomNumber = function() {
+      function generateRandomNumber() {
         const randomNumber = Math.floor(Math.random() * 3);
         if (randomNumber === 0) {
           return "rock";
@@ -27,26 +27,44 @@
         }
       }
 
-      function playRock() {
-        const computerMove = generateRandomNumber();
-        if(generateRandomNumber === computerMove){
-            alert(`Your move rock and computer's move ${computerMove}`);
+      function playGame(playerMove) {
+        const computer = generateRandomNumber();
+        let result = "";
+
+        if (playerMove === "rock") {
+          if (computer === "rock") {
+            result = `It's a tie`;
+          } else if (computer === "paper") {
+            result = `You lose`;
+          } else {
+            result = `You won`;
+          }
+        } else if (playerMove === "paper") {
+          if (computer === "rock") {
+            result = `You won`;
+          } else if (computer === "paper") {
+            result = `It's a tie`;
+          } else {
+            result = `You lose`;
+          }
+        } else if (playerMove === "scissors") {
+          if (computer === "rock") {
+            result = `You lose`;
+          } else if (computer === "paper") {
+            result = `You won`;
+          } else {
+            result = `It's a tie`;
+          }
         }
+
+        alert(
+          `You picked ${playerMove}. Computer picked ${computer}. ${result}`,
+        );
       }
 
-      function playPaper() {
-        const computerMove = generateRandomNumber();
-        alert(`Your move rock and computer's move ${computerMove}`);
-      }
-
-      function playScissors() {
-        const computerMove = generateRandomNumber();
-        alert(`Your move rock and computer's move ${computerMove}`);
-      }
-
-      rock.addEventListener("click", playRock);
-      paper.addEventListener("click", playPaper);
-      scissors.addEventListener("click", playScissors);
+      rock.addEventListener("click", () => playGame("rock"));
+      paper.addEventListener("click", () => playGame("paper"));
+      scissors.addEventListener("click", () => playGame("scissors"));
     </script>
   </body>
 </html>
