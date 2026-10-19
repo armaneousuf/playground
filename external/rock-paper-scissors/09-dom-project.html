@@ -4,13 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dom projects</title>
+
+    <style>
+      body {
+        font-family:Arial, Helvetica, sans-serif;
+      }
+
+      .subscribe {
+        border: none;
+        padding: 10px 15px;
+        background-color: black;
+        color: #fff;
+        border-radius: 50px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .is-subscribed {
+        background-color: bisque;
+        color: #000;
+      }
+
+      input, .btn {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .btn {
+        background-color: green;
+        color: #fff;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+    </style>
   </head>
   <body>
     <p>Youtube subscribe button</p>
     <button class="subscribe">subscribe</button>
 
     <p>Amazon shipping calculator</p>
-    <input type="text" class="cost-input" />
+    <input type="text" class="cost-input" placeholder="enter your cost"/>
     <button class="btn">Calculate</button>
     <p class="display-text"></p>
     <script>
@@ -35,13 +70,18 @@
 
       btn.addEventListener("click", displayTotalCost);
       inputEl.addEventListener('keydown', onEnter)
+      // ===================================== // 
+         // Youtube subscribe functionality 
+      // ===================================== // 
 
       const subscribe = document.querySelector(".subscribe");
       subscribe.addEventListener("click", function () {
         if (subscribe.textContent === "subscribe") {
           subscribe.textContent = "unsubscribe";
+          subscribe.classList.add('is-subscribed')
         } else {
           subscribe.textContent = "subscribe";
+          subscribe.classList.remove('is-subscribed')
         }
       });
     </script>
