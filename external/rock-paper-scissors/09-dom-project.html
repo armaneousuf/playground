@@ -8,13 +8,40 @@
   <body>
     <p>Youtube subscribe button</p>
     <button class="subscribe">subscribe</button>
+
+    <p>Amazon shipping calculator</p>
+    <input type="text" class="cost-input" />
+    <button class="btn">Calculate</button>
+    <p class="display-text"></p>
     <script>
+        const btn = document.querySelector(".btn");
+        const inputEl = document.querySelector(".cost-input");
+      function displayTotalCost() {
+        let inputValue = Number(inputEl.value);
+        const displayText = document.querySelector(".display-text");
+        if (inputValue > 40) {
+          inputValue += 10;
+          displayText.textContent = inputValue;
+        } else {
+          displayText.textContent = inputValue;
+        }
+      }
+
+      function onEnter(e) {
+        if(e.key === 'Enter'){
+            displayTotalCost()
+        }
+      }
+
+      btn.addEventListener("click", displayTotalCost);
+      inputEl.addEventListener('keydown', onEnter)
+
       const subscribe = document.querySelector(".subscribe");
       subscribe.addEventListener("click", function () {
-        if(subscribe.textContent === 'subscribe'){
-            subscribe.textContent = 'unsubscribe'
+        if (subscribe.textContent === "subscribe") {
+          subscribe.textContent = "unsubscribe";
         } else {
-            subscribe.textContent = 'subscribe'
+          subscribe.textContent = "subscribe";
         }
       });
     </script>
