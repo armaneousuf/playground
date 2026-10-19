@@ -10,17 +10,22 @@
     <button class="rock">Rock</button>
     <button class="paper">Paper</button>
     <button class="scissors">Scissors</button>
+    <p class="result"></p>
+    <p class="decision"></p>
+    <p class="update-score"></p>
     <button class="reset">Reset</button>
     <script>
       const rock = document.querySelector(".rock");
       const paper = document.querySelector(".paper");
       const scissors = document.querySelector(".scissors");
-      const reset = document.querySelector('.reset')
-    //   console.log(rock, paper, scissors);
-      const score = JSON.parse(localStorage.getItem('score')) || {
-        wins: 0, 
-        losses: 0, 
-        ties: 0
+      const update = document.querySelector(".update-score");
+      const resultEl = document.querySelector(".result");
+      const decision = document.querySelector(".decision");
+      const reset = document.querySelector(".reset");
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+        ties: 0,
       };
 
       function generateRandomNumber() {
@@ -32,6 +37,10 @@
         } else {
           return "scissors";
         }
+      }
+
+      function updateScore() {
+        update.textContent = `Wins ${score.wins} Losses ${score.losses} Ties ${score.ties}`;
       }
 
       function playGame(playerMove) {
@@ -64,36 +73,40 @@
           }
         }
 
-        if(result === 'You won'){
-            score.wins++;
-        } else if(result === 'You lose') {
-            score.losses++;
-        } else if (result === `It's a tie`){
-            score.ties++;
+        if (result === "You won") {
+          score.wins++;
+        } else if (result === "You lose") {
+          score.losses++;
+        } else if (result === `It's a tie`) {
+          score.ties++;
         }
 
-        localStorage.setItem('score', JSON.stringify(score));
+        resultEl.textContent = `${result}`;
 
-        alert(
-          `You picked ${playerMove}. Computer picked ${computer}. ${result}
-          Wins ${score.wins} Losses ${score.losses} Ties ${score.ties}
-          `,
-        );
+        localStorage.setItem("score", JSON.stringify(score));
+        updateScore();
+        updateScoreElement(playerMove, computer)
+      }
+
+      function updateScoreElement(playerMove, computerMove) {
+        decision.textContent = `You chose ${playerMove} and computer chose ${computerMove}`;
       }
 
       function resetGame() {
-         score.wins = 0;
-         score.losses = 0;
-         score.ties = 0;
-         localStorage.removeItem('score')
-         alert('Score has been reset!')
-        }
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+        localStorage.removeItem("score");
+        updateScore();
+        resultEl.textContent = "";
+        decision.textContent = "Score has been reset";
+      }
 
       rock.addEventListener("click", () => playGame("rock"));
       paper.addEventListener("click", () => playGame("paper"));
       scissors.addEventListener("click", () => playGame("scissors"));
-      reset.addEventListener('click', resetGame)
-
+      reset.addEventListener("click", resetGame);
+      updateScore()
     </script>
   </body>
 </html>
