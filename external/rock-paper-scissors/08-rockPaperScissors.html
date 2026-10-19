@@ -17,12 +17,11 @@
       const scissors = document.querySelector(".scissors");
       const reset = document.querySelector('.reset')
     //   console.log(rock, paper, scissors);
-
-      const score = {
+      const score = JSON.parse(localStorage.getItem('score')) || {
         wins: 0, 
         losses: 0, 
         ties: 0
-      }
+      };
 
       function generateRandomNumber() {
         const randomNumber = Math.floor(Math.random() * 3);
@@ -66,12 +65,14 @@
         }
 
         if(result === 'You won'){
-            score.wins += 1;
+            score.wins++;
         } else if(result === 'You lose') {
-            score.losses += 1;
+            score.losses++;
         } else if (result === `It's a tie`){
-            score.ties += 1;
+            score.ties++;
         }
+
+        localStorage.setItem('score', JSON.stringify(score));
 
         alert(
           `You picked ${playerMove}. Computer picked ${computer}. ${result}
@@ -84,6 +85,7 @@
          score.wins = 0;
          score.losses = 0;
          score.ties = 0;
+         localStorage.removeItem('score')
          alert('Score has been reset!')
         }
 
