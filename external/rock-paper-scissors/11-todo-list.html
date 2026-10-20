@@ -4,13 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo Lists</title>
+    <style>
+      .js-todo-list {
+        display: grid;
+        grid-template-columns: 200px 200px 100px 200px;
+        gap: 10px;
+        place-items: safe center;
+        
+      }
+
+      .js-todo-list button {
+        background-color: #9a0909;
+        border: none;
+        padding: 10px;
+        font-size: 18px;
+        color: #fff;
+      }
+
+      .js-todo-list div {
+        font-size: 19px;
+      }
+
+      .todo-input, .js-due-date {
+        padding: 10px;
+      }
+
+      .btn {
+        background-color: green;
+        color: #fff;
+        border: none;
+        padding: 13px;
+      }
+    </style>
   </head>
   <body>
     <h1>Todo Lists</h1>
-    <input type="text" class="todo-input" />
-    <input type="date" class="js-due-date"> 
-    <button class="btn">Add Todo</button>
-    <div class="js-todo-list"></div>
+    <main class="containner">
+      <input type="text" class="todo-input" />
+      <input type="date" class="js-due-date" />
+      <button class="btn">Add Todo</button>
+      <div class="js-todo-list"></div>
+    </main>
     <script src="../scripts/11.todo-list.js"></script>
   </body>
 </html>

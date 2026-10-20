@@ -10,7 +10,11 @@ function renderTodoList() {
   for (let i = 0; i < listOfArr.length; i++) {
     const todoObj = listOfArr[i];
     const { task, dueDate, time } = todoObj;
-    const html = `<p>${task} ${dueDate} ${time} <button data-index="${i}" class="delete-todo">Delete</button></p>`;
+    const html = `
+    <div>${task}</div>
+    <div>${dueDate}</div>
+    <div>${time}</div>
+    <button data-index="${i}" class="delete-todo">Delete</button>`;
     todoListHTML += html;
   }
   displayList.innerHTML = todoListHTML;
