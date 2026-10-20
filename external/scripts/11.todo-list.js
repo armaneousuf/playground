@@ -1,19 +1,9 @@
-const listOfArr = [
-  {
-    task: "make dinner",
-    dueDate: "2026-10-20",
-    time: "20:42",
-  },
-  {
-    task: "go to bed",
-    dueDate: "2026-10-20",
-    time: "20:43",
-  },
-];
+const listOfArr = [];
 
 const displayList = document.querySelector(".js-todo-list");
 const btn = document.querySelector(".btn");
 const todoInput = document.querySelector(".todo-input");
+const dueDateInput = document.querySelector(".js-due-date");
 
 function renderTodoList() {
   let todoListHTML = "";
@@ -27,9 +17,17 @@ function renderTodoList() {
 }
 
 function makeTodo() {
-  const todoInputValue = todoInput.value;
-  listOfArr.push(todoInputValue);
+  const task = todoInput.value;
+  const dueDate = dueDateInput.value;
+  const now = new Date();
+  const time = `${now.getHours().toString().padStart(2, "0")}: ${now.getMinutes().toString().padStart(2, "0")}`;
+  listOfArr.push({
+    task,
+    dueDate,
+    time,
+  });
   todoInput.value = "";
+  dueDateInput.value = "";
   renderTodoList();
 }
 
