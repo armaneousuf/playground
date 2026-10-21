@@ -6,11 +6,57 @@
     <title>Advanced function</title>
   </head>
   <body>
+    <!-- <p class="notification"></p>
+    <button class="add-btn">Add to Cart</button> -->
+    <h1>0</h1>
+    <button class="toggle-btn">Start</button>
     <script>
       // task one
-      const arrayOfNumber = [25, -10, 50, 0, -5, 120, -30];
-      const positiveNumbs = arrayOfNumber.filter((nums) => nums > 0).map((n) => `$${n}`);
-      console.log(positiveNumbs);
+      //   const arrayOfNumber = [25, -10, 50, 0, -5, 120, -30];
+      //   const positiveNumbs = arrayOfNumber.filter((nums) => nums > 0).map((n) => `$${n}`);
+      //   console.log(positiveNumbs);
+
+      // task two
+      //   const btn = document.querySelector(".add-btn");
+      //   const notification = document.querySelector(".notification");
+      //   let timerId;
+      //   function display() {
+      //     notification.textContent = "Added to cart!";
+      //     startTimer()
+      //   }
+
+      //  function startTimer() {
+      //     if(timerId){
+      //         clearTimeout(timerId);
+      //     }
+
+      //     timerId = setTimeout(() => {
+      //         notification.textContent = ''
+      //     }, 2000);
+      //  }
+      //   btn.addEventListener("click", display);
+
+      // task three
+      const toggleBtn = document.querySelector(".toggle-btn");
+      const heading = document.querySelector("h1");
+      let count = 0;
+      let intervalId = null;
+
+      function displayCount() {
+        if (intervalId === null) {
+          intervalId = setInterval(() => {
+            count++;
+            heading.textContent = count;
+            toggleBtn.textContent = "Stop";
+          }, 1000);
+        } else {
+          clearInterval(intervalId);
+          intervalId = null;
+          toggleBtn.textContent = "Start";
+        }
+      }
+
+      toggleBtn.addEventListener("click", displayCount);
     </script>
   </body>
 </html>
